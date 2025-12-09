@@ -4,3 +4,8 @@ network chess
 
 convert to board representation the database
 train network on it
+
+visualizer
+elo tracker
+alphazero
+general tree

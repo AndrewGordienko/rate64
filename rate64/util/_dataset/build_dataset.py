@@ -1,3 +1,5 @@
+# encodes games one by one
+
 import chess.pgn
 import numpy as np
 import torch

@@ -4,7 +4,8 @@ import torch
 import numpy as np
 
 from rate64.core.model import ValueNet
-from rate64.util.data_pipeline import encode_board
+from rate64.util._dataset.data_pipeline import encode_board
+# FIXED: correct import path
 
 
 def load_value_net(path="value_net.pt"):
@@ -33,7 +34,7 @@ def choose_move(model, board):
         score = evaluate_position(model, board)
         board.pop()
 
-        # White wants max score, black wants min score
+        # White wants max score, Black wants min score
         if best_move is None:
             best_move = move
             best_score = score
@@ -73,7 +74,7 @@ def self_play(model, max_moves=200):
             break
 
         print(f"Move {move_number} — {'White' if board.turn else 'Black'} to move")
-        current_eval = print_board_with_eval(board, model)
+        print_board_with_eval(board, model)
 
         move, move_eval = choose_move(model, board)
 
@@ -92,11 +93,20 @@ def self_play(model, max_moves=200):
     print("\nPGN:\n")
     print(game)
 
+    # RETURN PGN for GUI use
+    return str(game)
 
 
 def main():
     model = load_value_net("value_net.pt")
-    self_play(model)
+
+    pgn_text = self_play(model)
+
+    # Save PGN for GUI viewer
+    with open("selfplay.pgn", "w") as f:
+        f.write(pgn_text)
+
+    print("\nSaved PGN to selfplay.pgn")
 
 
 if __name__ == "__main__":

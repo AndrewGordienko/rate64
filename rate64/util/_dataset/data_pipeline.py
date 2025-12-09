@@ -1,4 +1,4 @@
-# data_pipeline.py
+# data_pipeline.py for encoding the board
 import chess
 import numpy as np
 

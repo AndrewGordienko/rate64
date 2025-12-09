@@ -4,7 +4,7 @@ from model import ValueNet
 
 DATASET_PATH = "dataset.pt"
 BATCH_SIZE = 512
-EPOCHS = 5
+EPOCHS = 100
 LR = 1e-3
 
 def main():
