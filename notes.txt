@@ -1,0 +1,6 @@
+GOAL: 2400 ELO
+
+network chess
+
+convert to board representation the database
+train network on it
