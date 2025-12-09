@@ -1,0 +1,4 @@
+*.pgn
+*.PGN
+data/
+datasets/
