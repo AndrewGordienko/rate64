@@ -1,4 +1,10 @@
+*.pt
 *.pgn
-*.PGN
+dataset.pt
+value_net.pt
+data/
+datasets/
+*.pt
+*.pgn
 data/
 datasets/
